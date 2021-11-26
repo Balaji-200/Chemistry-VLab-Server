@@ -36,7 +36,7 @@ app.use(passport.session());
 app.use(cookieParser());
 app.use(helmet())
 // CORS Setup
-const whitelist = [`http://localhost:5500`, `http://192.168.0.105:5500`];
+const whitelist = [`http://localhost:5500`, `http://192.168.0.105:5500`, `https://balaji-200.github.io`];
 const corsOptions = {
     origin: (origin, callback) => {
         if (whitelist.indexOf(origin) !== -1 || !origin) callback(null, true);
