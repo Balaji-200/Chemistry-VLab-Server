@@ -48,9 +48,6 @@ module.exports.sendResetPasswordMail = (toAddr) => {
             <img src="cid:background" style="width: 100vh; height: auto">
             <p>Please click on the link to change your password.</p>
             <p><a href="${resetPasswordLink}">Click Here</a></p>
-            <h1> OR </h1>
-            <p>Copy paste this link in your browser</p>
-            <p>${resetPasswordLink}</p>
             <br>
             <p>This is an auto generated email. </p>
             <p><b>Please Do not reply to this email</b></p>
@@ -68,3 +65,6 @@ module.exports.sendResetPasswordMail = (toAddr) => {
         }
     });
 };
+// <h1> OR </h1>
+// <p>Copy paste this link in your browser</p>
+// <p>${resetPasswordLink}</p>
