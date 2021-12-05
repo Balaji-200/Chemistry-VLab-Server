@@ -23,7 +23,6 @@ router.get("/", verifyUser, (req, res, next) => {
                 })
                 res.statusCode = 200;
                 res.sendfile("./result.csv")
-                unlinkSync("./result.csv")
             })
         }).catch(err => next(err))
 
