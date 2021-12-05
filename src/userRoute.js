@@ -5,7 +5,7 @@ const Users = require("./userModel");
 const passport = require("passport");
 const {sendConfirmationMail, sendResetPasswordMail} = require("./mail");
 const {json2csvAsync} = require("json-2-csv")
-const {writeFileSync} = require('fs')
+const {writeFileSync, unlinkSync} = require('fs')
 
 router.use(express.json());
 
@@ -23,6 +23,7 @@ router.get("/", verifyUser, (req, res, next) => {
                 })
                 res.statusCode = 200;
                 res.sendfile("./result.csv")
+                unlinkSync("./result.csv")
             })
         }).catch(err => next(err))
 
