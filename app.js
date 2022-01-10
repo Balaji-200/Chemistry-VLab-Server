@@ -24,7 +24,7 @@ app.use(
     store: MongoStore.create({
       mongoUrl: process.env.MONGO_URI,
       autoRemove: "interval",
-      autoRemoveInterval: 1.5 * 3600 * 1000,
+      autoRemoveInterval: 1.5 * 60,
     }),
     cookie: {
       sameSite: "strict",
