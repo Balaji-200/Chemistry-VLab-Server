@@ -9,7 +9,7 @@ const cookieParser = require("cookie-parser");
 const session = require("express-session");
 const passport = require("passport");
 const helmet = require('helmet');
-
+const MongoStore = require('connect-mongo');
 const userRouter = require("./src/userRoute");
 
 if (process.env.NODE_ENV === "development") {
@@ -21,10 +21,13 @@ app.use(
         secret: process.env.SESSION_SECRET,
         saveUninitialized: true,
         resave: false,
+        store: MongoStore.create({
+            mongoUrl: process.env.MONGO_URI
+        }),
         cookie: {
             sameSite: "strict",
             httpOnly: true,
-            secure: process.env.NODE_ENV === "development",
+            secure: process.env.NODE_ENV === "production",
             maxAge: 3 * 3600 * 1000,
         },
     })
