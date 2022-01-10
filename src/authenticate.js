@@ -19,7 +19,7 @@ passport.deserializeUser(Users.deserializeUser());
 module.exports.getToken = (user) => {
     return jwt.sign(user, process.env.SECRET, {
         algorithm: "HS512",
-        expiresIn: "3h",
+        expiresIn: "1.5h",
     });
 };
 
